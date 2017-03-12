@@ -110,6 +110,8 @@ skimage.transform.AffineTransform(matrix=None, scale=None, rotation=None, shear=
 
 https://courses.cs.washington.edu/courses/csep576/11sp/pdf/Transformations.pdf
 
+http://stackoverflow.com/a/25974040/4251394
+
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the seventh cell of the ipython notebook. 
