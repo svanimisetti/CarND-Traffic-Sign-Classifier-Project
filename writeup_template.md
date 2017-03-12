@@ -90,6 +90,23 @@ Here is an example of an original image and an augmented image:
 
 The difference between the original data set and the augmented data set is the following ... 
 
+http://scikit-image.org/docs/0.11.x/api/skimage.util.html#random-noise
+
+skimage.util.random_noise(image, mode='gaussian', seed=None, clip=True, \*\*kwargs)
+
+mode : gaussian, s&p
+
+https://people.csail.mit.edu/hasinoff/pubs/hasinoff-photon-2012-preprint.pdf
+
+"incident photon count follows a Poisson distribution"
+
+"photon noise is often modeled using a Gaussian distribution"
+
+"for larger counts, the central limit theorem ensures that the Poisson distribution approaches a Gaussian"
+
+http://scikit-image.org/docs/0.11.x/api/skimage.transform.html#skimage.transform.AffineTransform
+
+skimage.transform.AffineTransform(matrix=None, scale=None, rotation=None, shear=None, translation=None)
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
