@@ -95,7 +95,7 @@ My final model consisted of the following layers:
 | Fully connected	 | Input 84 and Output 43             									|
 | Softmax				      | Input 43 and Output 43 labels      									|
 
-![alt text][image4]
+![CNN-models][image4]
  
 In the present implementation, a derivative of the LeNet-5 architecture (shown in above figure) has been used. There are other convolutional architectures available. These include Sermanet-LeCun, AlexNet, VGGNet, NVIDIA CNN and more. Form the literature, it has been observed that Sermanet-LeCun with drop-out strategy gives the best possible result so far. However, this was not implemented in the presented submission.
 
@@ -119,18 +119,29 @@ In the present implementation, a derivative of the LeNet-5 architecture (shown i
 
 *4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.*
 
-The code for training the model is located in the eigth cell of the ipython notebook. 
+The code for training the model is located in the in cell \#179 of the ipynb HTML file. To train the model, the following were used.
 
-To train the model, I used an ....
+1. Optimizer chosen was AdamOptimizer with a rate of 0.0005
+2. 50 training EPOCHS with BATCH_SIZE of 128 for the SGD.
+3. Logits from the network are processed using *tf.nn.softmax_cross_entropy_with_logits* to determine the SCE and loss function. The optimizer minimized the loss function over the ephocs.
+4. Following metrics were computed during the course of training.
+  a. Training accuracy and loss
+  b. Validation accuracy.
+
+A history plot of the following metric is shown in the figure below.
+
+![Progress-Metrics][image5]
+
+In the above plot, it can be seen that the training and validation accuracies quickly reach their peak values within 20 ephocs and remain stable without any subsequent oscillation. The convergence characteristics for the optimizer are good. This is a good indication of correct selection of hyperparameters. The blue dots represent the epoch when the optimizer upgrade to a better training/validation accuracy. The optimizer consistently improved the validation accuracy through the ephocs to reach the peak accuracy of ~97% at epoch 50. Again, this is a sign of good convergence and correct choice of hyperparameters.
 
 *5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.*
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the cell \# 177.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* Training set accuracy of 100%
+* Validation set accuracy of 97%
+* Test set accuracy of 100%
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -143,16 +154,14 @@ If a well known architecture was chosen:
 * What architecture was chosen?
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+
+[HLSGD](http://ieeexplore.ieee.org/document/6766231/)
 
 ###Test a Model on New Images
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
-
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
 
 The first image might be difficult to classify because ...
 
