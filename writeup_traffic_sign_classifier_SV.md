@@ -52,7 +52,14 @@
 
 *1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.*
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+An overview of the pre-processing steps and example output is shown in cells \#167-171 of the ipynb HTML file. The implementation of the pre-processing steps is actually done in two helper functions listed in cell \#163.
+
+* Function *gsnorm_image* takes a RGB image as inputs and applies a grayscale fileter using *skimage.color.rgb2gray* function. Then, it also applies adaptive histogram equalisation to improve the contrast using *exposure.equalize_adapthist*. Finally, normalization is applied on the grayscale image to change the values to 0.01-0.99 scale using the skimage.exposure.rescale_intensity function.
+*
+
+The following images have been agumented for the purposes of expanding the training dataset. The details of the augmentation pipeline are presented in the augment_image function. The function applies an affine transform (rotation, shear and scaling) with reference to the center fo the image.
+Note that there are additional translational steps performed to ensure that the edges of the image are not biased with 0-pixels as a result of the affine transformations.
+The image is subsequently also applied with Gaussian noise to simulate the influence of camera sensor noise and issues during the data acquisition process.
 
 As a first step, I decided to convert the images to grayscale because ...
 
