@@ -1,7 +1,5 @@
 ## Traffic Sign Recognition Project
 
----
-
 ### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
 
 **The following considerations are presented in this writeup**
