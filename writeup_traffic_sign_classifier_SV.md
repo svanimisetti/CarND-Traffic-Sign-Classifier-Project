@@ -169,40 +169,18 @@ Further improvements can be made to the model. I intend to return to this projec
 
 *1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.*
 
-Images were obtained using an academic database post presented on [Medium](https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6#.ni141p60k). Direct link the image tile is here. This is based on the [Belgian traffic sign database](http://btsd.ethz.ch/shareddata/). The following 28 images were selected from this list and processed.
+Images were obtained using an academic database post presented on [Medium](https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6#.ni141p60k). This is based on the [Belgian traffic sign database](http://btsd.ethz.ch/shareddata/). 28 images from the following image set were selected for testing purpose.
 
 ![Custom-Test][image7]
 
 *2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).*
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in cells \# 245, 246, 256, 257, 273 & 348 of the ipynb HTML submission file. The following figure gives an overview of the prediction, including the softmax values for the top-5 predictions.
 
-Here are the results of the prediction:
+![Custom-Test-Prediction][image8]
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess known traffic signal signs with an accuracy of ~92%. This compares favorably to the accuracy on the test set of 100%.
 
 *3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)*
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
+The trained network did a decent job with the images obtained from the internet. Since these images are from the Belgian database, there are a few images that were not a part of the training test from the German traffic sign database. The network is able to determine 22 out of 28 images correctly (accuracy ~ 78%). Out of the wrongly identified 6 images, 4 were never presented during the training process (1 railway crossing, 2 cyclists, 1 handicap parking). So, overall the accuracy could be considered 22 out of 24 (92%), which is pretty decent for images from unrelated dataset.
