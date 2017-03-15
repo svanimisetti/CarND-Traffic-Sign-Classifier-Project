@@ -2,7 +2,7 @@
 
 ### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
 
-** The following considerations are presented in this writeup **
+**The following considerations are presented in this writeup**
 
 1. Project data sets (training, validation and test) were obtained from the course project GitHub repository.
 2. The image data set was thoroughly explore and vital statistics were generated, including a label distribution chart. Randomly chosen image samples were also visualized.
