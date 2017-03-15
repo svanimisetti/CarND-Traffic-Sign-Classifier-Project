@@ -16,11 +16,12 @@
 [image1]: ./writeup/visual_summary_9tile.png "Visual summary of training data"
 [image2]: ./writeup/dataset_barchart.png "Dataset distribution"
 [image3]: ./writeup/processed_9tile.png "Pre-processed training data"
-[image4]: ./writeup/traning_progress.png "Training progress"
-[image5]: ./writeup/confusion_matrix.png "Confusion matrix for test data"
-[image6]: ./writeup/new_test_set.png "New custom tests set from internet"
-[image7]: ./writeup/new_test_prediction.png "Prediciton for new test set"
-[image8]: ./writeup/feature_visualization.png "Feature visualization"
+[image5]: ./writeup/cnn_comparison.png "Comparison of CNN Architectures"
+[image5]: ./writeup/traning_progress.png "Training progress"
+[image6]: ./writeup/confusion_matrix.png "Confusion matrix for test data"
+[image7]: ./writeup/new_test_set.png "New custom tests set from internet"
+[image8]: ./writeup/new_test_prediction.png "Prediciton for new test set"
+[image9]: ./writeup/feature_visualization.png "Feature visualization"
 
 ### A brief explanation to the rubric points
 
@@ -37,7 +38,7 @@
 3. The data set is also explored visually uing 3 helper functions (listed in Cell \#163).
 4. Nine random images from each dataset are shown, along with the label as title to the figure. This provides a quick summary of the images, and also gives an overview of the image quality of unprocessed images.
 
-<img src="./writeup/visual_summary_9tile.png" alt="Drawing" style="width: 50px;"/>
+![9-Tile][image1]
 
 5. The distribution of the dataset is also visually explore using a histogram bar chart. The graph showed tha thte speed signs, keep right, yeield, stop and few other labels dominate the training/validation/test datasets.
 
