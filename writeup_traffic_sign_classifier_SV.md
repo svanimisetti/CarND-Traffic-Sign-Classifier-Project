@@ -46,7 +46,9 @@
 
 ![Bar-Chart][image2]
 
-#### Design and Test a Model Architecture
+---
+
+### Network Design, Validation and Testing
 
 ##### Data pre-processing
 
@@ -136,12 +138,14 @@ In the above plot, it can be seen that the training and validation accuracies qu
 
 *5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.*
 
-The code for calculating the accuracy of the model is located in the cell \# 177.
+The code for calculating the accuracy of the model is located in the cell \# 177. The test dataset from the German traffic sign database was also used and 48 images were randomly selected from the test set to evaluate the test accuracy. This was done after satisfactory results were obtained from the validation set after multiple iterations to tune the hyperparamters. The testing procedure is shown in cell \# 219-222. The test accuracy was 100%. The confusion matrix for the test is shown in following figure. Since the test was 100% accurate, there are no off-diagonal elements.
+
+![Confusion-Matrix][image6]
 
 My final model results were:
-* Training set accuracy of 100%
-* Validation set accuracy of 97%
-* Test set accuracy of 100%
+* Training set accuracy of **100%**
+* Validation set accuracy of **97%**
+* Test set accuracy of **100%**
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -155,17 +159,21 @@ If a well known architecture was chosen:
 * Why did you believe it would be relevant to the traffic sign application?
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
-[HLSGD](http://ieeexplore.ieee.org/document/6766231/)
+The first architecture tested was LeCun-5. The implementation from previous lab was adapted. With the intial architecutre, using the color data as features posed significant challenges. The maximum accuracy obtained using the color channels as features was only 89%. It is argued that the traffic signs rarely only differ in color. They may have variation in color, but will also have variation is shape. So, the architeture of the network was adjusted so as to take normalized grayscale images as inputs. After the network was modified, the hyperparameters that were modified were: learning rate, epochs and batch size for SGD. Since the normalized grayscale image improved the inital accuracy, a lower learning rate was explored to improve the accuracy in subsequent epochs. Also, this enabled the use of more number of epochs with a smaller batch size. The resulting network model is extremely efficient in training.
 
-###Test a Model on New Images
+Further improvements can be made to the model. I intend to return to this project to complete implementation of Sermanet-LeCun model with dropout feature. In the literature, it has been shown that this network design is superior to other designs such as AlexNet, VGGNet, NVIDIA CNN, and others. Furthermore, implemetation of the [HLSGD](http://ieeexplore.ieee.org/document/6766231/) method can further improve the optimizer efficiency. State-of-the-art accuracy on the German traffic sign dataset is 99.65%, which is based on the aforementioned combination.
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+---
 
-Here are five German traffic signs that I found on the web:
+### Test a Model on New Images
 
-The first image might be difficult to classify because ...
+*1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.*
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+Images were obtained using an academic database post presented on [Medium](https://medium.com/@waleedka/traffic-sign-recognition-with-tensorflow-629dffc391a6#.ni141p60k). Direct link the image tile is here. This is based on the [Belgian traffic sign database](http://btsd.ethz.ch/shareddata/). The following 28 images were selected from this list and processed.
+
+![Custom-Test][image7]
+
+*2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).*
 
 The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
 
@@ -182,7 +190,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+*3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)*
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
