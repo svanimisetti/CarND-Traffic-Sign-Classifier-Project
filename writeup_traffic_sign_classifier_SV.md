@@ -1,6 +1,8 @@
 ## Traffic Sign Recognition Project
 
-#### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
+---
+
+### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
 
 **The following considerations are presented in this writeup**
 
@@ -23,6 +25,8 @@
 [image8]: ./writeup/new_test_prediction.png "Prediciton for new test set"
 [image9]: ./writeup/feature_visualization.png "Feature visualization"
 
+---
+
 ### A brief explanation to the rubric points
 
 #### Summary of the data sets
@@ -31,7 +35,7 @@
 2. The training, validation and testing datasets are loaded from pickle file.
 3. A summary of the datasets interms of the number of features, labels and array shapes is presented.
 
-### Data Set Summary & Exploration
+#### Data Set Summary & Exploration
 
 1. The dataset summary and exploration is performed in Cells \#161-\#165.
 2. First, the summary of # of examples in each dataset is presented along with the image data shape (features) and the number of classes (labels).
@@ -44,9 +48,11 @@
 
 ![Bar-Chart][image2]
 
-###Design and Test a Model Architecture
+#### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+##### Data pre-processing
+
+*1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.*
 
 The code for this step is contained in the fourth code cell of the IPython notebook.
 
