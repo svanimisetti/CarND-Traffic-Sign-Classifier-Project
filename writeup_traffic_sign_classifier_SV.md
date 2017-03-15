@@ -13,8 +13,8 @@
 6. Summary of the results will be discussed and presented with reference to the accomanying ipynb HTML submission.
 
 [//]: # (Image References)
-[image1]: ./writeup/dataset_barchart.png "Dataset distribution"
-[image2]: ./writeup/visual_summary_9tile.png "Visual summary of training data"
+[image1]: ./writeup/visual_summary_9tile.png "Visual summary of training data"
+[image2]: ./writeup/dataset_barchart.png "Dataset distribution"
 [image3]: ./writeup/processed_9tile.png "Pre-processed training data"
 [image4]: ./writeup/traning_progress.png "Training progress"
 [image5]: ./writeup/confusion_matrix.png "Confusion matrix for test data"
@@ -36,9 +36,12 @@
 2. First, the summary of # of examples in each dataset is presented along with the image data shape (features) and the number of classes (labels).
 3. The data set is also explored visually uing 3 helper functions (listed in Cell \#163).
 4. Nine random images from each dataset are shown, along with the label as title to the figure. This provides a quick summary of the images, and also gives an overview of the image quality of unprocessed images.
+
+![9-Tile][image1]
+
 5. The distribution of the dataset is also visually explore using a histogram bar chart. The graph showed tha thte speed signs, keep right, yeield, stop and few other labels dominate the training/validation/test datasets.
 
-![Vis][image1]
+![Bar-Chart][image2]
 
 ###Design and Test a Model Architecture
 
