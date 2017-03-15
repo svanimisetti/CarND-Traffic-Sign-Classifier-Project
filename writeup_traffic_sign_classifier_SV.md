@@ -5,7 +5,7 @@
 **The following considerations are presented in this writeup**
 
 1. Project data sets (training, validation and test) were obtained from the course project GitHub repository.
-2. The image data set was thoroughly explore and vital statistics were generated, including a label distribution chart. Randomly chosen image samples were also visualized.
+2. The image data set was thoroughly explored and vital statistics were generated, including a label distribution chart. Randomly chosen image samples were also visualized.
 3. The training dataset was augmented using image transformation techniques. The resulting image set was appended to the original training set. The details of the transformation procedure are presented below.
 3. LeNet-5 architecture was implemented, trained and tested to two different data set. The first data set was partitioned out of the German dataset.
 4. Another set was derived based on the Belgain traffic sign database to explore the performance to the trained network. Details discussed in the following sections.
