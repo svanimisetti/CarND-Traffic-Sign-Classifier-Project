@@ -52,62 +52,27 @@
 
 *1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.*
 
-An overview of the pre-processing steps and example output is shown in cells \#167-171 of the ipynb HTML file. The implementation of the pre-processing steps is actually done in two helper functions listed in cell \#163.
+An overview of the pre-processing steps and example output is shown in cells \#167-171 of the ipynb HTML file. The implementation of the pre-processing steps in the augmentation pipeline is accomplished using two helper functions listed in cell \#163.
 
-* Function *gsnorm_image* takes a RGB image as inputs and applies a grayscale fileter using *skimage.color.rgb2gray* function. Then, it also applies adaptive histogram equalisation to improve the contrast using *exposure.equalize_adapthist*. Finally, normalization is applied on the grayscale image to change the values to 0.01-0.99 scale using the skimage.exposure.rescale_intensity function.
-*
+* Function *__gsnorm_image__* takes a RGB image as inputs and applies a grayscale fileter using *skimage.color.rgb2gray* function. Then, it also applies adaptive histogram equalisation to improve the contrast using *exposure.equalize_adapthist*. Finally, normalization is applied on the grayscale image to change the values to 0.01-0.99 scale using the skimage.exposure.rescale_intensity function.
+* Another function *__augment_image__* is used to augment the training image dataset. This function applies an [affine transform using skimage.transform.AffineTransform function](http://scikit-image.org/docs/0.11.x/api/skimage.transform.html#skimage.transform.AffineTransform). In other words, rotation, shear and scaling is applied to the image with reference to its center. A great resource on geomtric tranforms can be found [here](https://courses.cs.washington.edu/courses/csep576/11sp/pdf/Transformations.pdf). Note that rotation & shear are critial to the operation and since features are built in raster-form (horizonal / vertical). Simple flip/mirror operation is not enough. In my experience, affine trasnforms give better generalization than flip/mirror during dataset augmentation. Note that care should be taken not to apply too much rotation such that the edges are washed/padded with 0-pixels. This will bias the feature vector and does not add any value.
+* In the same *__augment_image__* function, Gaussian noise is added to the image to simulate the influence of camera sensor noise and issues during the data acquisition process. This is implemented using [skimage.util.random_noise](http://scikit-image.org/docs/0.11.x/api/skimage.util.html#random-noise) with mode='gaussian' option is used. This is based on the fact that [although incident light (photons) arrives at the camera sensor with a Poisson distribution, photon noise is often approximated well using Gaussian distribution when adequate light reaches the sensor, as suggested by the central limit theorem](https://people.csail.mit.edu/hasinoff/pubs/hasinoff-photon-2012-preprint.pdf). 
 
-The following images have been agumented for the purposes of expanding the training dataset. The details of the augmentation pipeline are presented in the augment_image function. The function applies an affine transform (rotation, shear and scaling) with reference to the center fo the image.
-Note that there are additional translational steps performed to ensure that the edges of the image are not biased with 0-pixels as a result of the affine transformations.
-The image is subsequently also applied with Gaussian noise to simulate the influence of camera sensor noise and issues during the data acquisition process.
+![Pre-process][image3]
 
-As a first step, I decided to convert the images to grayscale because ...
+*2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)*
 
-Here is an example of a traffic sign image before and after grayscaling.
+The code for splitting the data into training and validation sets is contained in the cell \#165 of the ipynb HTML file. The final training, validation and test sets sizes are listed below.
 
-![alt text][image2]
+* Number of training examples = 34799
+* Number of validation examples = 4410
+* Number of testing examples = 12630
 
-As a last step, I normalized the image data because ...
-
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
-
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
-
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
-
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
-
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
+The examples of the original and augmented images are shown above in Figures 2 & 3.
 
 ![alt text][image3]
 
-The difference between the original data set and the augmented data set is the following ... 
-
-http://scikit-image.org/docs/0.11.x/api/skimage.util.html#random-noise
-
-skimage.util.random_noise(image, mode='gaussian', seed=None, clip=True, \*\*kwargs)
-
-mode : gaussian, s&p
-
-https://people.csail.mit.edu/hasinoff/pubs/hasinoff-photon-2012-preprint.pdf
-
-"incident photon count follows a Poisson distribution"
-
-"photon noise is often modeled using a Gaussian distribution"
-
-"for larger counts, the central limit theorem ensures that the Poisson distribution approaches a Gaussian"
-
-http://scikit-image.org/docs/0.11.x/api/skimage.transform.html#skimage.transform.AffineTransform
-
-skimage.transform.AffineTransform(matrix=None, scale=None, rotation=None, shear=None, translation=None)
-
-https://courses.cs.washington.edu/courses/csep576/11sp/pdf/Transformations.pdf
-
-http://stackoverflow.com/a/25974040/4251394
-
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+*3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.*
 
 The code for my final model is located in the seventh cell of the ipython notebook. 
 
@@ -125,7 +90,6 @@ My final model consisted of the following layers:
 |						|												|
 |						|												|
  
-
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
