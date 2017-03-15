@@ -1,6 +1,6 @@
 ## Traffic Sign Recognition Project
 
-### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
+#### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
 
 **The following considerations are presented in this writeup**
 
@@ -13,14 +13,14 @@
 6. Summary of the results will be discussed and presented with reference to the accomanying ipynb HTML submission.
 
 [//]: # (Image References)
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image1]: ./writeup/dataset_barchart.png "Dataset distribution"
+[image2]: ./writeup/visual_summary_9tile.png "Visual summary of training data"
+[image3]: ./writeup/processed_9tile.png "Pre-processed training data"
+[image4]: ./writeup/traning_progress.png "Training progress"
+[image5]: ./writeup/confusion_matrix.png "Confusion matrix for test data"
+[image6]: ./writeup/new_test_set.png "New custom tests set from internet"
+[image7]: ./writeup/new_test_prediction.png "Prediciton for new test set"
+[image8]: ./writeup/feature_visualization.png "Feature visualization"
 
 ### A brief explanation to the rubric points
 
