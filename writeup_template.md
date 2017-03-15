@@ -1,24 +1,18 @@
-#**Traffic Sign Recognition** 
+## Traffic Sign Recognition Project
 
-##Writeup Template
+### Submission by Sampath Vanimisetti (Feb 2017 Cohort)
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+** The following considerations are presented in this writeup **
 
----
-
-**Build a Traffic Sign Recognition Project**
-
-The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
+1. Project data sets (training, validation and test) were obtained from the course project GitHub repository.
+2. The image data set was thoroughly explore and vital statistics were generated, including a label distribution chart. Randomly chosen image samples were also visualized.
+3. The training dataset was augmented using image transformation techniques. The resulting image set was appended to the original training set. The details of the transformation procedure are presented below.
+3. LeNet-5 architecture was implemented, trained and tested to two different data set. The first data set was partitioned out of the German dataset.
+4. Another set was derived based on the Belgain traffic sign database to explore the performance to the trained network. Details discussed in the following sections.
+5. For the Belgian dataset, the softmax probabilities were studied. About 83% accuracy could be attained.
+6. Summary of the results will be discussed and presented with reference to the accomanying ipynb HTML submission.
 
 [//]: # (Image References)
-
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
@@ -28,37 +22,23 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### A brief explanation to the rubric points
 
----
-###Writeup / README
+#### Summary of the data sets
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+1. The loading and summary of datasets is presented in Cell \#160 of the ipynb HMTL file.
+2. The training, validation and testing datasets are loaded from pickle file.
+3. A summary of the datasets interms of the number of features, labels and array shapes is presented.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+### Data Set Summary & Exploration
 
-###Data Set Summary & Exploration
+1. The dataset summary and exploration is performed in Cells \#161-\#165.
+2. First, the summary of # of examples in each dataset is presented along with the image data shape (features) and the number of classes (labels).
+3. The data set is also explored visually uing 3 helper functions (listed in Cell \#163).
+4. Nine random images from each dataset are shown, along with the label as title to the figure. This provides a quick summary of the images, and also gives an overview of the image quality of unprocessed images.
+5. The distribution of the dataset is also visually explore using a histogram bar chart. The graph showed tha thte speed signs, keep right, yeield, stop and few other labels dominate the training/validation/test datasets.
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
-
-The code for this step is contained in the second code cell of the IPython notebook.  
-
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
-
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
-
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
-
-The code for this step is contained in the third code cell of the IPython notebook.  
-
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
-
-![alt text][image1]
+![Visualization][./examples/visualization.jpg]
 
 ###Design and Test a Model Architecture
 
