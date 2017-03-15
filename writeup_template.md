@@ -38,7 +38,7 @@
 4. Nine random images from each dataset are shown, along with the label as title to the figure. This provides a quick summary of the images, and also gives an overview of the image quality of unprocessed images.
 5. The distribution of the dataset is also visually explore using a histogram bar chart. The graph showed tha thte speed signs, keep right, yeield, stop and few other labels dominate the training/validation/test datasets.
 
-![Visualization][./examples/visualization.jpg "Test"]
+<p align=center>![Visualization][image1]</p>
 
 ###Design and Test a Model Architecture
 
